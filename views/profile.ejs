@@ -1,0 +1,113 @@
+<%- include("header") -%> 
+
+<form class="container-fluid" method="post">
+    <div>
+        <div class = "profile" >
+        <h2 name = "username"><%= username %> </h2>
+        <img src = '<%= avatar %>' >
+        <p name = "contestrating"><%= rating %> </p>
+      </div>
+    </div>
+    <hr>
+    <div class = "problemset"> 
+        <div class = "search">
+           
+         <input type="number" class = "rangebutton" > 
+        &nbsp;  to &nbsp;
+         <input type="number" class = "rangebutton"> 
+         &nbsp;
+         <button type="button" class="btn btn-secondary" style = "margin-bottom: 5px;">Sort</button>
+        </div>
+        
+        
+
+        <table class="table table-striped table-dark">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Problem</th>
+                <th scope="col">
+                    <div class="dropdown">
+                        <button class="dropbtn">Type</button>
+                        <div class="dropdown-content">
+                            <!-- <form action="http://localhost:3000/" method="POST"> -->
+                        <input type="submit"  class="dropdown-item"  name = "index" value = "A">
+                        <input type="submit"  class="dropdown-item"  name = "index" value = "B">
+                        <input type="submit"  class="dropdown-item"  name = "index" value = "C">
+                        <input type="submit"  class="dropdown-item"  name = "index" value = "D">
+                        <input type="submit"  class="dropdown-item"  name = "index" value = "E">
+                        <input type="submit"  class="dropdown-item"  name = "index" value = "F">
+                        <input type="submit"  class="dropdown-item"  name = "index" value = "G">
+                        <!-- </form> -->
+                        </div>
+                      </div>
+
+                </th>
+                <th scope="col">
+                        <div class="dropdown">
+                            <button class="dropbtn">Rating</button>
+                            <div class="dropdown-content">
+                                <a class="dropdown-item" href="#">&lt; 800</a>
+                            <a class="dropdown-item" href="#">900</a>
+                            <a class="dropdown-item" href="#">1000</a>
+                            <a class="dropdown-item" href="#">1100</a>
+                            <a class="dropdown-item" href="#">1200</a>
+                            <a class="dropdown-item" href="#">1300</a>
+                            <a class="dropdown-item" href="#">1400</a>
+                            <a class="dropdown-item" href="#">1500</a>
+                            <a class="dropdown-item" href="#">1600 &gt;</a>
+                            </div>
+                          </div>
+                     </th>
+                <th scope="col">Submission</th>
+                <th scope="col">
+                    <div class="dropdown">
+                        <button class="dropbtn">Verdicts</button>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="#">OK</a>
+                        <a class="dropdown-item" href="#">WRONG_ANSWER</a>
+                        <a class="dropdown-item" href="#">COMPILATION_ERROR</a>
+                        <a class="dropdown-item" href="#">TLE</a>
+                        <a class="dropdown-item" href="#">...</a>
+                        </div>
+                      </div>
+                </th>
+                <th scope="col">
+                    <div class="dropdown">
+                        <button class="dropbtn">Participant Type</button>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="#">PRACTICE</a>
+                        <a class="dropdown-item" href="#">OUT_OF_COMPETITION</a>
+                        <a class="dropdown-item" href="#">CONTESTANT</a>
+                        </div>
+                      </div>
+                </th>
+
+              </tr>
+            </thead>
+            <tbody>
+                <% for(var i = 0; i < newListItems.length; i++) { %>
+                    <tr>
+                        <th scope="row"><%= i+1 %></th>
+                         <td><a href = "<%= newListItems[i][3]%>" target = "_blank" ><%= newListItems[i][0] %></a></td>
+                        <td><%= newListItems[i][1] %></td>
+                        <td><%= newListItems[i][2] %></td>
+                        <td><a href = "<%= newListItems[i][4]%>" target = "_blank"><%= newListItems[i][5] %></a></td>
+                        <td><%= newListItems[i][6] %></td>
+                        <td><%= newListItems[i][7] %></td>
+
+
+                      </tr>
+                    <% } %>
+
+                    
+             
+            
+            </tbody>
+          </table>
+         
+       </div>
+    </form>
+  <hr>
+
+    <%- include("footer") -%> 
